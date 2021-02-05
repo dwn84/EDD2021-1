@@ -18,6 +18,7 @@ class pruebaRecursividad {
         } else {
             System.out.println(x);
             repetir(x - 1);
+
         }
 
     }
@@ -45,6 +46,26 @@ class pruebaRecursividad {
         System.out.println("");
     }
 
+    public int sumatoria(int n) {
+        //caso base 
+        System.out.println("");
+        if (n == 1) {
+            return 1;
+        } else {
+            return n + sumatoria(n - 1);
+        }
+    }
+    
+    public double factorial(double n){
+        System.out.println("");
+        if(n==0){
+            return 1;
+        }else{
+            return n * factorial(n-1);
+        }
+    }
+    
+
 }
 
 public class JavaApplication28 {
@@ -57,6 +78,8 @@ public class JavaApplication28 {
         pruebaRecursividad r = new pruebaRecursividad();
         r.proceso1();
         r.repetir(20);
+        System.out.println("Sumatoria = " + r.sumatoria(5));
+        System.out.println("Factorial = " + r.factorial(4));
 
     }
 
