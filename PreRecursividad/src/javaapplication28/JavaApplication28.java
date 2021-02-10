@@ -10,18 +10,7 @@ package javaapplication28;
  * @author samaniw
  */
 class pruebaRecursividad {
-
-    public void repetir(int x) {
-        //caso base
-        if (x == 0) {
-            System.out.println("Fin del proceso");
-        } else {
-            System.out.println(x);
-            repetir(x - 1);
-
-        }
-
-    }
+    //Ejemplo de analisis de pila de llamadas(call stack)
 
     public void proceso1() {
         int x = 11;
@@ -46,6 +35,21 @@ class pruebaRecursividad {
         System.out.println("");
     }
 
+//ejemplo de recursividad lineal final
+    public void repetir(int x) {
+
+        //caso base
+        if (x == 0) {
+            System.out.println("Fin del proceso");
+        } else {
+            System.out.println(x);
+            repetir(x - 1);
+
+        }
+
+    }
+
+//Ejemplo de recursividad lineal no final    
     public int sumatoria(int n) {
         //caso base 
         System.out.println("");
@@ -55,16 +59,59 @@ class pruebaRecursividad {
             return n + sumatoria(n - 1);
         }
     }
-    
-    public double factorial(double n){
+//Ejemplo de recursividad lineal no final    
+
+    public double factorial(double n) {
         System.out.println("");
-        if(n==0){
+        if (n == 0) {
             return 1;
-        }else{
-            return n * factorial(n-1);
+        } else {
+            return n * factorial(n - 1);
         }
     }
-    
+    //Ejemplo de recursividad múltiple
+
+    public int fibo(int n) {
+        //casos base       
+        System.out.println("");
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            return fibo(n - 1) + fibo(n - 2);
+        }
+    }
+
+    //Ejemplo de recursividad mutua    
+    //Determinar si un número es par
+    public boolean par(int n) {
+        if (n == 0) {
+            return true;
+        } else {
+            return impar(n - 1);
+        }
+    }
+
+    private boolean impar(int n) {
+        if (n == 0) {
+            return false;
+        } else {
+            return par(n - 1);
+        }
+    }
+
+    //ejemplo máximo común divisor
+    public int gcd(int a, int b) {
+        //caso base
+        if (a == b) {
+            return a;
+        } else if (a > b) {
+            return gcd(a-b,b);
+        }else{
+            return gcd(a,b-a);
+        }
+    }
 
 }
 
@@ -80,6 +127,9 @@ public class JavaApplication28 {
         r.repetir(20);
         System.out.println("Sumatoria = " + r.sumatoria(5));
         System.out.println("Factorial = " + r.factorial(4));
+        System.out.println("Elemento en la posicion 5 de fibonacci: " + r.fibo(5));
+        System.out.println("Validar si 8 es par: " + r.par(8));
+        System.out.println("M.C.D de 14 y 8 es:"+ r.gcd(14, 8));
 
     }
 
