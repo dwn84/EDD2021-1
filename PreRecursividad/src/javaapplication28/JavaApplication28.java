@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -42,6 +42,7 @@ class pruebaRecursividad {
         if (x == 0) {
             System.out.println("Fin del proceso");
         } else {
+
             System.out.println(x);
             repetir(x - 1);
 
