@@ -46,6 +46,16 @@ public class Lists {
         sll.add(66);
         sll.add(77);
         sll.add(88);
+        sll.add(99);
+        sll.add(22);
+        sll.add(33);
+        sll.add(715);
+        sll.add(8888);
+        
+        /*Toda validación retorna falso o verdadero
+        int a=55,b=66;
+        System.out.println(a!=b);*/
+        System.out.println(sll.showData());
         System.out.println("");
 
     }

@@ -9,14 +9,13 @@ package lists;
  *
  * @author samaniw
  */
-public class SingleLinkedList<T> implements ILists<T>{
-    
+public class SingleLinkedList<T> implements ILists<T> {
+
     private Node<T> head;
 
     public SingleLinkedList() {
         head = null;
     }
-        
 
     @Override
     public void add(T d) {
@@ -55,17 +54,40 @@ public class SingleLinkedList<T> implements ILists<T>{
 
     @Override
     public String showData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isEmpty()){
+            return "Lista vacia";
+        }else{
+            String info ="";         
+            for (Node<T> i = head; i!=null; i=i.getNextNode()) {
+                info = info + i.getData() + " - ";
+            } 
+            
+            //forma tradicional de recorrer lista con Mientras
+            /*Node<T> currentNode = head;
+            while (currentNode!=null) {
+                info = info + currentNode.getData();
+                currentNode = currentNode.getNextNode();
+            }*/
+            return info;
+        }
+        
+
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return head == null;/*
+        if (head == null) {
+            return true;
+        } else {
+            return false;
+        }*/
+
     }
 
     @Override
     public boolean search(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
