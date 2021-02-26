@@ -9,7 +9,7 @@ package lists;
  *
  * @author samaniw
  */
-public class SingleLinkedList<T> implements ILists<T> {
+public class SingleLinkedList<T extends Number & Comparable> implements ILists<T> {
 
     private Node<T> head;
 
@@ -33,13 +33,19 @@ public class SingleLinkedList<T> implements ILists<T> {
     }
 
     @Override
-    public void addAfter(T a) {
+    public void addAfter(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void deleteFirts() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isEmpty()){
+            System.out.println("Liista vacía");
+        }else{
+            //cambiar cabeza
+            //la nueva cabeza será el siguiente de la cabeza actual
+            head = head.getNextNode();
+        }
     }
 
     @Override
@@ -88,6 +94,43 @@ public class SingleLinkedList<T> implements ILists<T> {
     @Override
     public boolean search(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addOrdered(T d) {
+        //Crear un nodo para el nuevo dato.
+        Node<T> newNode = new Node<>(d);
+        /*Si la lista esta vacía, o el valor del primer elemento de la lista 
+            es mayor que el nuevo, insertar el nuevo nodo en la primera posición 
+            de la lista y modificar la cabecera respectivamente.*/
+        if(isEmpty() || newNode.getData().compareTo(head.getData())==-1){
+            add(d);
+        }
+        /*
+        Si no se cumple el caso anterior, buscar el lugar adecuado 
+        para la inserción: recorrer la lista conservando el nodo actual. 
+        Inicializar nodo actual con el valor de primera posición, 
+        y avanzar mientras el siguiente nodo no sea nulo y el dato que 
+        contiene la siguiente posición sea menor o igual que el dato a insertar.
+        */
+        else{
+            Node<T> currentNode = head;
+            while(currentNode.getNextNode()!=null
+                    && currentNode.getNextNode().getData().compareTo(d)<0
+                    )
+            {
+                //avanzar
+                currentNode = currentNode.getNextNode();
+            }
+            /*
+            Con esto se seña al nodo adecuado, a continuación insertar el 
+            nuevo nodo a continuación de él
+            */
+            newNode.setNextNode(currentNode.getNextNode());
+            currentNode.setNextNode(newNode);
+        }
+        
+
     }
 
 }

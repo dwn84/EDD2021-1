@@ -42,21 +42,39 @@ public class Lists {
         Box<String> ddd = new Box<>();
         //Ejemplo de inserción de datos en lista simple
         SingleLinkedList<Integer> sll = new SingleLinkedList<>();
-        sll.add(55);
-        sll.add(66);
-        sll.add(77);
-        sll.add(88);
-        sll.add(99);
-        sll.add(22);
-        sll.add(33);
-        sll.add(715);
-        sll.add(8888);
+        sll.addOrdered(11);
+        sll.addOrdered(99);
+        sll.addOrdered(2);
+        sll.addOrdered(88);
+        sll.addOrdered(101);        
+        sll.addOrdered(33);
+        sll.addOrdered(5);
+        sll.addOrdered(107);
+        sll.addOrdered(103);
+        System.out.println(sll.showData());
+        sll.deleteFirts();
+        sll.deleteFirts();
+        sll.deleteFirts();
+        
+//        sll.add(55);
+//        sll.add(66);
+//        sll.add(77);
+//        sll.add(88);
+//        sll.add(99);
+//        sll.add(22);
+//        sll.add(33);
+//        sll.add(715);
+//        sll.add(8888);
         
         /*Toda validación retorna falso o verdadero
         int a=55,b=66;
         System.out.println(a!=b);*/
         System.out.println(sll.showData());
         System.out.println("");
+        String aa ="2";
+        String bb ="1";
+        System.out.println("Resultados de compareTo");
+        System.out.println(aa.compareTo(bb));
 
     }
 //Ejemplo de genérico

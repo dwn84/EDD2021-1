@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/servicios/Lists/src/lists/Lists.java</file>
-            <file>file:/C:/xampp/htdocs/servicios/Lists/src/lists/ExampleClassImplements.java</file>
-            <file>file:/C:/xampp/htdocs/servicios/Lists/src/lists/SingleLinkedList.java</file>
-            <file>file:/C:/xampp/htdocs/servicios/Lists/src/lists/ExampleNode.java</file>
-            <file>file:/C:/xampp/htdocs/servicios/Lists/src/lists/ILists.java</file>
-            <file>file:/C:/xampp/htdocs/servicios/Lists/src/lists/Node.java</file>
+            <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/Node.java</file>
+            <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/SingleLinkedList.java</file>
+            <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/Lists.java</file>
+            <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/ILists.java</file>
         </group>
     </open-files>
 </project-private>

@@ -25,10 +25,13 @@ public interface ILists<T> {
      * @param a
      * @param b 
      */
-    public void addAfter(T a); 
+    public void addAfter(T d); 
     /**
      * Borrar el primer elemento de la lista
      */
+    
+    public void addOrdered(T d);
+    
     public void deleteFirts();
     /**
      * Borrar el últiumo elemento de la lista
