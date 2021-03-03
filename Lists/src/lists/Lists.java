@@ -35,6 +35,9 @@ public class Lists {
         n3.setNextNode(n4);
         n4.setNextNode(n5);
         n5.setNextNode(n6);
+//        System.out.println("Dato del primer nodo");//avanzar dos nodos y obtener el dato
+//        System.out.println(n1.getNextNode().getNextNode().getData());
+//        System.out.println("--------");
         System.out.println("");
         //Instaciación de clase con dato genérico
         Box<Integer> bbb = new Box<>();
@@ -42,20 +45,17 @@ public class Lists {
         Box<String> ddd = new Box<>();
         //Ejemplo de inserción de datos en lista simple
         SingleLinkedList<Integer> sll = new SingleLinkedList<>();
+        sll.addOrdered(88);   
+        sll.addOrdered(99);   
+        sll.addOrdered(101);   
+        sll.addOrdered(109);   
+        sll.addOrdered(77);   
+        sll.addOrdered(109);   
         sll.addOrdered(11);
-        sll.addOrdered(99);
-        sll.addOrdered(2);
-        sll.addOrdered(88);
-        sll.addOrdered(101);        
-        sll.addOrdered(33);
-        sll.addOrdered(5);
-        sll.addOrdered(107);
-        sll.addOrdered(103);
+        sll.addOrdered(122);
+
         System.out.println(sll.showData());
-        sll.deleteFirts();
-        sll.deleteFirts();
-        sll.deleteFirts();
-        
+        sll.delete(109);        
 //        sll.add(55);
 //        sll.add(66);
 //        sll.add(77);
