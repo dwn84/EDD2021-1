@@ -37,7 +37,7 @@ public interface ILists<T> {
      * Borrar el últiumo elemento de la lista
      */
     public void deleteLast();    
-    public void delete(T d);
+    public boolean delete(T d);
     public String showData();
     public boolean isEmpty();    
     public boolean search(T d);

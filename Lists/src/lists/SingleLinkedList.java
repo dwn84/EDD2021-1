@@ -54,26 +54,30 @@ public class SingleLinkedList<T extends Number & Comparable> implements ILists<T
     }
 
     @Override
-    public void delete(T d) {
+    public boolean delete(T d) {
+        boolean checkDeleted = false;
         //1. Validar si el dato a borrar esta en la cabeza
         if (head.getData() == d) {
             deleteFirts();
-        }else{
+            checkDeleted = true;            
+        } else {
             //2. Recorrer toda la estructura
             Node<T> currentNode = head;
-            while(currentNode.getNextNode()!=null) {
+            while (currentNode.getNextNode() != null) {
                 //3. Verificar si el dato se encuentra en el siguiente nodo
-                if(currentNode.getNextNode().getData()==d){
+                if (currentNode.getNextNode().getData() == d) {
                     //4.Cambiar el siguiene del actual para que se ubique dos pasos adelante
                     currentNode.setNextNode(currentNode.getNextNode().getNextNode());
-                }
-                //5. Avanzar un nodo
-                if(currentNode.getNextNode()!=null){
+                    checkDeleted = true;                   
+                } //5. Avanzar un nodo
+                else if (currentNode.getNextNode() != null) {
                     currentNode = currentNode.getNextNode();
-                }                
+                }
                 //System.out.println("");
             }
         }
+        return checkDeleted;
+
     }
 
     @Override

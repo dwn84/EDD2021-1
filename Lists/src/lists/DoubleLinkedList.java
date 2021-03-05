@@ -9,15 +9,28 @@ package lists;
  *
  * @author samaniw
  */
-public class ExampleClassImplements implements ILists{
+public class DoubleLinkedList<T extends Number & Comparable> implements ILists<T>{
+    
+    private DoubleNode<T> head;
+    private DoubleNode<T> tail;
 
     @Override
-    public void add(Object d) {
+    public void add(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void addLast(Object d) {
+    public void addLast(T d) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addAfter(T d) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addOrdered(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -32,7 +45,7 @@ public class ExampleClassImplements implements ILists{
     }
 
     @Override
-    public boolean delete(Object d) {
+    public boolean delete(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -47,17 +60,7 @@ public class ExampleClassImplements implements ILists{
     }
 
     @Override
-    public void addAfter(Object a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean search(Object d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addOrdered(Object d) {
+    public boolean search(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
