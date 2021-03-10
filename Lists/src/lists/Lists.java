@@ -45,7 +45,7 @@ public class Lists {
         bbb.Experiment(99);
         bbb.Experiment(88, 44);
         Box<Double> ccc = new Box<>();
-        
+
         Box<String> ddd = new Box<>();
         //Ejemplo de inserción de datos en lista simple
         SingleLinkedList<Integer> sll = new SingleLinkedList<>();
@@ -70,12 +70,28 @@ public class Lists {
 //        sll.add(33);
 //        sll.add(715);
 //        sll.add(8888);
+        System.out.println(sll.showData());
 
         /*Toda validación retorna falso o verdadero
         int a=55,b=66;
         System.out.println(a!=b);*/
-        System.out.println(sll.showData());
-        System.out.println("");
+        //Pruebas de lista doble
+        DoubleLinkedList<Integer> dll = new DoubleLinkedList<>();
+        dll.addLast(33);
+        dll.addLast(44);
+        dll.addLast(88);
+        dll.addLast(66);
+        dll.addLast(99);
+
+        System.out.println("Resultados de la lista dobble");
+        System.out.println(dll.showData());
+        //System.out.println(dll.showDataDesc());        
+        dll.deleteLast();
+        dll.deleteLast();
+        dll.deleteFirts();
+
+        System.out.println(dll.showData());
+
         String aa = "2";
         String bb = "1";
         System.out.println("Resultados de compareTo");

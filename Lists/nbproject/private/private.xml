@@ -14,7 +14,9 @@
         <group>
             <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/Node.java</file>
             <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/SingleLinkedList.java</file>
+            <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/DoubleNode.java</file>
             <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/Lists.java</file>
+            <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/DoubleLinkedList.java</file>
             <file>file:/C:/xampp/htdocs/servicios/EDD2021-1/Lists/src/lists/ILists.java</file>
         </group>
     </open-files>

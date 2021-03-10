@@ -20,8 +20,8 @@ public class DoubleNode<V> {
     
     public DoubleNode(DoubleNode prevNod, V data, DoubleNode nextNod){
         setData(data);
-        setNextNode(nextNode);
-        setPreviousNode(previousNode);
+        setNextNode(nextNod);
+        setPreviousNode(prevNod);
     }
     
     /**

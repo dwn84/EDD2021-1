@@ -12,7 +12,7 @@ package lists;
 public interface ILists<T> {
     /**
      * Agregar un nuevo dato a la lista al inicio
-     * @param d 
+     * @param d Contenido del nodo 
      */
     public void add(T d);
     /**
@@ -20,6 +20,9 @@ public interface ILists<T> {
      * @param d 
      */
     public void addLast(T d);
+    /*
+    jxjdjasfg sf agfa hsdfga jkfgjasfd
+    */
     /**
      * Agregar un nuevo dato a la lista despues de una dato existente
      * @param a
@@ -37,6 +40,11 @@ public interface ILists<T> {
      * Borrar el últiumo elemento de la lista
      */
     public void deleteLast();    
+    /**
+     * Eliminar un elemento especifico de la lista
+     * @param d El dato a borrar
+     * @return verdadero si la borro, falso si no lo encontro
+     */
     public boolean delete(T d);
     public String showData();
     public boolean isEmpty();    
