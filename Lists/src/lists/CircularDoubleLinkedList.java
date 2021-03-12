@@ -9,15 +9,31 @@ package lists;
  *
  * @author samaniw
  */
-public class ExampleClassImplements implements ILists{
+public class CircularDoubleLinkedList<T extends Number & Comparable> implements ILists<T> {
+
+    private DoubleNode<T> head;
+
+    public CircularDoubleLinkedList() {
+        head = null;
+    }
 
     @Override
-    public void add(Object d) {
+    public void add(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void addLast(Object d) {
+    public void addLast(T d) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addAfter(T a, T b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addOrdered(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -32,33 +48,31 @@ public class ExampleClassImplements implements ILists{
     }
 
     @Override
-    public boolean delete(Object d) {
+    public boolean delete(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String showData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (isEmpty()) {
+            return "Lista vacia";
+        } else {
+            String info = "";
+            for (DoubleNode<T> i = head; i != null; i = i.getNextNode()) {
+                info = info + i.getData() + " - ";
+            }
+            return info;
+        }
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return head == null;
     }
 
     @Override
-    public void addAfter(Object a, Object b) {
+    public boolean search(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public boolean search(Object d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addOrdered(Object d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

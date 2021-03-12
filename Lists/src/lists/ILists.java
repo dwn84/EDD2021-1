@@ -25,10 +25,10 @@ public interface ILists<T> {
     */
     /**
      * Agregar un nuevo dato a la lista despues de una dato existente
-     * @param a
-     * @param b 
+     * @param a Dato donde se va a ubicar a continunación el nuevo valor
+     * @param b Nuevo dato.
      */
-    public void addAfter(T d); 
+    public void addAfter(T a, T b); 
     /**
      * Borrar el primer elemento de la lista
      */

@@ -33,7 +33,7 @@ public class SingleLinkedList<T extends Number & Comparable> implements ILists<T
     }
 
     @Override
-    public void addAfter(T d) {
+    public void addAfter(T a, T b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

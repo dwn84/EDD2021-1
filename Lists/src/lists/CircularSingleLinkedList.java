@@ -9,15 +9,49 @@ package lists;
  *
  * @author samaniw
  */
-public class ExampleClassImplements implements ILists{
+public class CircularSingleLinkedList<T extends Number & Comparable> implements ILists<T> {
+
+    private Node<T> head;
+    private Node<T> tail;
+
+    public CircularSingleLinkedList() {
+        head = tail = null;
+    }
+
+    
+    
+    @Override
+    public void add(T d) {
+        Node<T> newNode = new Node<>(d);
+        if(isEmpty()){
+            head = tail = newNode;
+        }else{
+            //1. Modificar el siguiente del nuevo nodo
+            //para que apunte a la cabeza actual
+            newNode.setNextNode(head);
+            //2. Actualiza la cabeza para que sea el nuevo nodo
+            head = newNode;
+            //3. Cambiar el siguente de la cola, para que apunte a la
+            //nueva cabeza
+            tail.setNextNode(head);
+        }
+        
+
+
+    }
 
     @Override
-    public void add(Object d) {
+    public void addLast(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void addLast(Object d) {
+    public void addAfter(T a, T b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addOrdered(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -32,33 +66,31 @@ public class ExampleClassImplements implements ILists{
     }
 
     @Override
-    public boolean delete(Object d) {
+    public boolean delete(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String showData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         if (isEmpty()) {
+            return "Lista vacia";
+        } else {
+            String info = "";
+            for (Node<T> i = head; i != tail; i = i.getNextNode()) {
+                info = info + i.getData() + " - ";
+            }
+            return info+= tail.getData();
+        }
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return head == null;
     }
 
     @Override
-    public void addAfter(Object a, Object b) {
+    public boolean search(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public boolean search(Object d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addOrdered(Object d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

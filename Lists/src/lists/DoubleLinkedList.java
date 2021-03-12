@@ -49,15 +49,48 @@ public class DoubleLinkedList<T extends Number & Comparable> implements ILists<T
     }
 
     @Override
-    public void addAfter(T d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addAfter(T a, T b) {
+        if(isEmpty()){
+            System.out.println("Lista vacia");
+        }else{
+            //localizar y retornar del nodo
+            DoubleNode<T> temp = new DoubleNode<>(null);
+            for (DoubleNode<T> i = head; i != null; i = i.getNextNode()) {                
+                if(i.getData().compareTo(a)==0){
+                    temp = i;
+                    break;                    
+                }
+            }
+            //*************************************************************
+            //Verificar si el dato no existe y evitar un nullPointerException
+            //*************************************************************
+            if(temp==null){
+                System.out.println("No se encuentra el dato");
+            }else{
+                //*************************************************************
+                //Verificar si el dato que se busca se encuentra al final.(nullPointerException)
+                //*************************************************************
+                //1. Crear un nuevo nodo con enlaces al anterior donde localizo
+                //el dato, y al siguiente con el siguiente del nodo localizado
+                DoubleNode<T> newNode = new DoubleNode<T>(temp,b,temp.getNextNode());
+                //2. En el nodo localizado previamente, cambiar el siguiente
+                //al nuevo nodo
+                temp.setNextNode(newNode);
+                //3. Cambiar el anterior del siguiente del nuevo nuevo, 
+                //para que apunte al nuevo nodo
+                newNode.getNextNode().setPreviousNode(newNode);
+                
+            }
+
+            
+        }
     }
 
     @Override
     public void addOrdered(T d) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+ 
     @Override
     public void deleteFirts() {
 

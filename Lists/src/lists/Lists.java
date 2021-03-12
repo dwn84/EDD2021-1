@@ -85,13 +85,29 @@ public class Lists {
 
         System.out.println("Resultados de la lista dobble");
         System.out.println(dll.showData());
+        //Falta evitar un NullPointerException al buscar el último dato...
+        //dll.addAfter(99,11);
         //System.out.println(dll.showDataDesc());        
-        dll.deleteLast();
-        dll.deleteLast();
-        dll.deleteFirts();
+//        dll.deleteLast();
+//        dll.deleteLast();
+//        dll.deleteFirts();
 
         System.out.println(dll.showData());
 
+        //Pruebas para lista circular simple
+        CircularSingleLinkedList<Integer> csl = new CircularSingleLinkedList<>();
+        csl.add(11);
+        csl.add(77);
+        csl.add(88);
+        csl.add(101);
+        csl.add(33);
+        csl.add(44);
+        csl.add(55);
+        System.out.println("Datos de la lista circular simple");
+        System.out.println(csl.showData());
+        
+        
+        
         String aa = "2";
         String bb = "1";
         System.out.println("Resultados de compareTo");
