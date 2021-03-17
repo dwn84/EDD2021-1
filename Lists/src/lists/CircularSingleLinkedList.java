@@ -77,6 +77,7 @@ public class CircularSingleLinkedList<T extends Number & Comparable> implements 
         } else {
             String info = "";
             for (Node<T> i = head; i != tail; i = i.getNextNode()) {
+               
                 info = info + i.getData() + " - ";
             }
             return info+= tail.getData();
@@ -90,7 +91,17 @@ public class CircularSingleLinkedList<T extends Number & Comparable> implements 
 
     @Override
     public boolean search(T d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(isEmpty()){
+            return false;
+        }else{
+            return search(d,head);
+        }
+    }
+    
+    private boolean search(T d, Node currentNode) {
+        if(currentNode==tail && !currentNode.getData().equals(d)){
+            return false;
+        }
     }
 
 }
