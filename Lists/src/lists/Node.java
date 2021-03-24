@@ -17,6 +17,11 @@ public class Node<V> {
         this.data = data;
         this.nextNode = null;
     }
+    
+    public Node(V data, Node nextNode){
+        setData(data);
+        setNextNode(nextNode);   
+    }
 
     /**
      * @return the data

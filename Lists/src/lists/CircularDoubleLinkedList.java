@@ -19,7 +19,17 @@ public class CircularDoubleLinkedList<T extends Number & Comparable> implements 
 
     @Override
     public void add(T d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (isEmpty()) {
+            DoubleNode<T> newNode = new DoubleNode<>(d);
+            head = newNode;
+            newNode.setNextNode(newNode);
+            newNode.setPreviousNode(newNode);
+        }else{
+            DoubleNode<T> newNode = new DoubleNode<>(head.getPreviousNode(),d,head);
+            newNode.getPreviousNode().setNextNode(newNode);
+            head.setPreviousNode(newNode);
+            head = newNode;
+        }
     }
 
     @Override
@@ -57,12 +67,17 @@ public class CircularDoubleLinkedList<T extends Number & Comparable> implements 
         if (isEmpty()) {
             return "Lista vacia";
         } else {
-            String info = "";
-            for (DoubleNode<T> i = head; i != null; i = i.getNextNode()) {
-                info = info + i.getData() + " - ";
-            }
-            return info;
+            return showDataRecursive(head);
         }
+    }
+
+    private String showDataRecursive(DoubleNode currentNode) {
+        if (currentNode == head.getPreviousNode()) {
+            return currentNode.getData().toString();
+        } else {
+            return currentNode.getData() + " - " + showDataRecursive(currentNode.getNextNode());
+        }
+
     }
 
     @Override

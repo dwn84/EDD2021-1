@@ -94,13 +94,18 @@ public class CircularSingleLinkedList<T extends Number & Comparable> implements 
         if(isEmpty()){
             return false;
         }else{
-            return search(d,head);
+            return searchR(d,head);
         }
     }
     
-    private boolean search(T d, Node currentNode) {
+    private boolean searchR(T d, Node currentNode) {
+        //casos base de la recursividad.
         if(currentNode==tail && !currentNode.getData().equals(d)){
             return false;
+        }else if(currentNode.getData().equals(d)){
+            return true;
+        }else{
+            return searchR(d, currentNode.getNextNode());
         }
     }
 

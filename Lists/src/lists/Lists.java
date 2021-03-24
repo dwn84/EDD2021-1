@@ -5,6 +5,8 @@
  */
 package lists;
 
+import java.util.Stack;
+
 /**
  *
  * @author samaniw
@@ -103,10 +105,46 @@ public class Lists {
         csl.add(33);
         csl.add(44);
         csl.add(55);
+        System.out.println("Búsqueda de dato: " + csl.search(99));
         System.out.println("Datos de la lista circular simple");
         System.out.println(csl.showData());
         
+        CircularDoubleLinkedList<Integer> cdll = new CircularDoubleLinkedList<>();
+        cdll.add(22);
+        cdll.add(33);
+        cdll.add(44);
+        cdll.add(55);
+        System.out.println("Datos de la lista circular doble: "+cdll.showData());
         
+        
+        //Pruebas de pila con arreglo
+        
+        ArrayStack as = new ArrayStack(6);
+        as.push(44);
+        as.push(33);
+        as.push(55);
+        as.push(22);
+        System.out.println(as);
+        
+        //pruebas de pila con nodos
+        
+        LinkedStack<Integer> ls = new LinkedStack<>();
+        ls.push(11);
+        ls.push(99);
+        ls.push(22);
+        ls.push(88);
+        ls.push(33);
+        System.out.println(ls);
+        ls.pop();
+        System.out.println(ls);
+//        Stack<Integer> testStack = new Stack<>();
+//        testStack.push(22);
+//        testStack.push(33);
+//        testStack.push(44);
+//        testStack.push(55);
+//        testStack.push(66);
+//        System.out.println(testStack);
+//        System.out.println(testStack.search(22));
         
         String aa = "2";
         String bb = "1";
