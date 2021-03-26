@@ -17,6 +17,7 @@ public class Lists {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       
         // TODO code application logic here
         ExampleNode n1 = new ExampleNode();
         ExampleNode n2 = new ExampleNode();
@@ -108,26 +109,23 @@ public class Lists {
         System.out.println("Búsqueda de dato: " + csl.search(99));
         System.out.println("Datos de la lista circular simple");
         System.out.println(csl.showData());
-        
+
         CircularDoubleLinkedList<Integer> cdll = new CircularDoubleLinkedList<>();
         cdll.add(22);
         cdll.add(33);
         cdll.add(44);
         cdll.add(55);
-        System.out.println("Datos de la lista circular doble: "+cdll.showData());
-        
-        
+        System.out.println("Datos de la lista circular doble: " + cdll.showData());
+
         //Pruebas de pila con arreglo
-        
         ArrayStack as = new ArrayStack(6);
         as.push(44);
         as.push(33);
         as.push(55);
         as.push(22);
         System.out.println(as);
-        
+
         //pruebas de pila con nodos
-        
         LinkedStack<Integer> ls = new LinkedStack<>();
         ls.push(11);
         ls.push(99);
@@ -137,6 +135,24 @@ public class Lists {
         System.out.println(ls);
         ls.pop();
         System.out.println(ls);
+
+        //Pruebas para verificar el balance de una expresión
+        String expresion = "(5 +(5 * 5))/55";
+        System.out.println("Verificar parentesis: " + checkParentheses(expresion));
+
+        //Pruebas de conversión a binario
+        System.out.println("Convetir a binario: " + toBinary(1));
+        
+        //pruebas de cola
+        
+        LinkedQueue<Integer> lq = new LinkedQueue<>();
+        lq.offer(22);
+        lq.offer(33);
+        lq.offer(44);
+        lq.offer(66);
+        lq.offer(11);
+        lq.offer(99);
+        System.out.println("Datos de la cola: "+lq);
 //        Stack<Integer> testStack = new Stack<>();
 //        testStack.push(22);
 //        testStack.push(33);
@@ -145,7 +161,6 @@ public class Lists {
 //        testStack.push(66);
 //        System.out.println(testStack);
 //        System.out.println(testStack.search(22));
-        
         String aa = "2";
         String bb = "1";
         System.out.println("Resultados de compareTo");
@@ -178,6 +193,39 @@ public class Lists {
         public Object get() {
             return object;
         }
+    }
+
+    //Verificar si una expresión esta balanceada
+    public static boolean checkParentheses(String exp) {
+
+        LinkedStack<String> checkBalance = new LinkedStack<>();
+        char[] arrayExp = exp.toCharArray();
+        for (int i = 0; i < arrayExp.length; i++) {
+            if (arrayExp[i] == '(') {
+                checkBalance.push("(");
+            } else if (arrayExp[i] == ')') {
+                if (checkBalance.empty()) {
+                    return false;
+                } else {
+                    checkBalance.pop();
+                }
+            }
+        }
+        return checkBalance.empty();
+    }
+
+    //convertir de decimal a binario
+    public static String toBinary(int n) {
+        LinkedStack<Integer> residue = new LinkedStack<>();
+        String binary ="";
+        while (n>0) {            
+            residue.push(n % 2);
+            n /= 2;
+        }
+        while (!residue.empty()) {            
+            binary+=residue.pop();
+        }
+        return binary;
     }
 
 }
