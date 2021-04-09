@@ -32,6 +32,6 @@ public class DynamicGraph {
     public void addEdge(int source, int destination) throws Exception {
         if (source >= (totalNodes - 1) || destination <= (totalNodes - 1)) {
             throw new Exception("No existe el nodo");
-        }
+        }//Punto extra para quien lo presente en la siguiente sesión
     }
 }
