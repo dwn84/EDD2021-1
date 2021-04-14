@@ -43,6 +43,27 @@ public class Graphs {
         dg.addNode();
         dg.addNode();
         dg.addNode();
+        try {
+            dg.addEdge(0, 4);
+            dg.addEdge(0, 2);
+            dg.addEdge(0, 1);
+            dg.addEdge(0, 3);
+            dg.addEdge(5, 0);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("lista de adyacencia");
+        System.out.println(dg.showAdjacencyList());
+        
+        dg.deleteNode(2);
+        
+        System.out.println("lista de adyacencia");
+        System.out.println(dg.showAdjacencyList());
+        
+        System.out.println("Lista de arcos");
+        System.out.println(dg.edgeList());
+        
+        
         System.out.println("");
 
     }
