@@ -26,13 +26,19 @@ public class Graphs {
         mgp.addNode("C");
         mgp.addNode("D");
         mgp.addEdge("A", "B", 2);
+        mgp.addEdge("B", "A", 2);
         mgp.addEdge("A", "C", 5);
+        mgp.addEdge("C", "A", 5);
         mgp.addEdge("B", "C", 2);
+        mgp.addEdge("C", "B", 2);
         mgp.addEdge("B", "D", 5);
+        mgp.addEdge("D", "B", 5);
+        mgp.addEdge("C", "D", 1);
+        mgp.addEdge("D", "C", 1);
         System.out.println("Lista de adyacencia de grafo con arcos que tienen peso");
         System.out.println(mgp.showAdjacencyList());
-        
-        
+        HashMap<String,EdgeNode> mapD = mgp.Dijkstra("A");
+        System.out.println("");
         
         //implementar un hashmap - mapa de recorrido
         HashMap<String,EdgeNode> map = new HashMap<>();
