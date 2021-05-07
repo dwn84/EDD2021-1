@@ -46,12 +46,10 @@ public class MinGraphPath {
         }
         return data;
     }
-    
-    private LinkedList<EdgeNode> allNeighbors(String key){
+
+    private LinkedList<EdgeNode> allNeighbors(String key) {
         return adjacencyList.get(key);
     }
-    
-    
 
     public HashMap<String, EdgeNode> Dijkstra(String currentNode) {
         /*
@@ -71,56 +69,46 @@ public class MinGraphPath {
             }
             map.putIfAbsent(node, info);
         }
-        
+
         /*
         Crear una cola priorizada donde se almacenan 
         vértices a donde llegar y su respectivo peso.
-        */
+         */
         PriorityQueue<EdgeNode> pq = new PriorityQueue<>();
         /*
         Definir un punto de referencia 
         (vértice actual y peso actual: cero) 
         y agregarlo a la cola priorizada. 
-        */
-        
-        int currentWeight = 0,totalWeight;
+         */
+
+        int currentWeight = 0, totalWeight;
         pq.add(new EdgeNode(currentNode, currentWeight));
-        
-        
+
         /*
         Generar un arreglo de vértices visitados.
-        */
+         */
         LinkedList<String> visited = new LinkedList<>();
 
-        while(!pq.isEmpty()){
-        
-            /*Sacar un vértice de la cola priorizada
-(el que tega menor peso y parasará a ser el nodo actual), 
-su peso será el peso actual. Agregar si ya no lo está, 
-el vértice sacado al arreglo de visitados
-*/
-        EdgeNode temp = pq.poll();
-        currentNode = temp.getDestinationNode();
-        currentWeight = temp.getWeight();
-        }
+        while (!pq.isEmpty()) {
 
-        
-        /*
+            EdgeNode temp = pq.poll();
+            currentNode = temp.getDestinationNode();
+            currentWeight = temp.getWeight();
+                    /*
         *Para el vértive actual, obtener todos sus vecinos
         y calcular el peso del recorrido
         (peso actual + peso arco) para agregarlos a la cola
         priorizada si no han sido visitados.
-        */
-        
-        for (EdgeNode neighbor : allNeighbors(currentNode)) {
-            if(!visited.contains(neighbor.getDestinationNode())){
-                totalWeight = currentWeight + neighbor.getWeight();
-                pq.add(new EdgeNode(neighbor.getDestinationNode(), totalWeight));
-                
+             */
+            for (EdgeNode neighbor : allNeighbors(currentNode)) {
+                if (!visited.contains(neighbor.getDestinationNode())) {
+                    totalWeight = currentWeight + neighbor.getWeight();
+                    pq.add(new EdgeNode(neighbor.getDestinationNode(), totalWeight));
+
+                }
             }
-        }
-        
-    /*
+
+            /*
     Actualizar el mapa de recorrido, 
     esto es comparar cada vertice de destino 
     con los existentes en la cola priorizada, 
@@ -128,19 +116,18 @@ el vértice sacado al arreglo de visitados
     (vértice sacado previamente) 
         si es menor al valor actual del mapa.
 
-        */    
-    
-        for (EdgeNode node : pq) {
-            if(node.getWeight()<map.get(node.getDestinationNode()).getWeight()){
-                map.put(node.getDestinationNode(), new EdgeNode(currentNode, node.getWeight()));
+             */
+            for (EdgeNode node : pq) {
+                if (node.getWeight() < map.get(node.getDestinationNode()).getWeight()) {
+                    map.put(node.getDestinationNode(), new EdgeNode(currentNode, node.getWeight()));
+                }
+            }
+
+            if (!visited.contains(currentNode)) {
+                visited.add(currentNode);
             }
         }
-        
-                
-        if(!visited.contains(currentNode)){
-            visited.add(currentNode);
-        }
-        
+
         return map;
     }
 
