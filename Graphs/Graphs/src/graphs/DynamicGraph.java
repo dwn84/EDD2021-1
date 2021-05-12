@@ -78,4 +78,43 @@ public class DynamicGraph {
         }        
         return data;
     }
+    /**
+     * Recorrido en anchura
+     * @param u nodo actual
+     */
+    public void BFS(int u){
+        LinkedList<Integer> queue = new LinkedList<>();
+        boolean[] visited = new boolean[totalNodes];
+        visited[u]=true;
+        
+        queue.add(u);
+        
+        while (!queue.isEmpty()) {
+            u=queue.poll();//u = Q.front, Q.pop
+            System.out.print(u+" ");
+            for(Integer v: adjacencyList.get(u)){
+            //if v is unvisited
+                if(!visited[v]){
+                    visited[v] = true;
+                    queue.add(v);
+                }
+            }
+        }
+    }
+    
+    public void DFS(int u){
+        boolean[] visited=new boolean[totalNodes];
+        DFS(u,visited);
+    }
+    
+    private void DFS(int u, boolean[] visited){
+        visited[u] = true;
+        System.out.print(u + " ");
+        for(Integer v: adjacencyList.get(u)){
+            if(!visited[v]){
+                DFS(v,visited);
+            }
+        }
+    }
+
 }
