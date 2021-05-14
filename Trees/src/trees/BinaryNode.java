@@ -22,7 +22,7 @@ public class BinaryNode{
     }
     
     public boolean isLeaf(){
-        return(getLeftNode()==null && getRightNode()==null) ?true:false;
+        return(getLeftNode()==null && getRightNode() == null) ?true:false;
         
     }
     

@@ -21,7 +21,10 @@ public class Trees {
         bst.add(33);
         bst.add(99);
         bst.add(44);
+        bst.delete(33);
         System.out.println("");
+        
+        
     }
     
 }
