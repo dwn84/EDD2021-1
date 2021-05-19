@@ -96,6 +96,11 @@ public class BinarySearchTree {
                     father.setLeftNode(null);
                 }
             } else if (tempNode.oneChild()) {//caso base 2
+                //caso especial de un solo hijo (raiz)
+                if (tempNode == root) {
+                    root = (tempNode.isLeftOrRight())?tempNode.getRightNode():tempNode.getLeftNode();
+                    return;
+                }
                 //Si el nodo por borrar tiene solo un hijo, 
                 //su respectivo padre apuntará directamente a dicho nodo hijo.
 
@@ -112,9 +117,35 @@ public class BinarySearchTree {
                 } else {
                     father.setLeftNode(tempNode.getLeftNode());
                 }
+            } else {//caso recursivo - se tiene un nodo con dos hijos
+                /*buscar predecesor y reemplazarlo con dicho nodo.
+                Ubicarse en subárbol izquierdo y localizar el dato mayor.
+                 */
+                BinaryNode major = getMajor(tempNode.getLeftNode());
+                delete(major.getData());
+                tempNode.setData(major.getData());
             }
         }
     }
+
+    private BinaryNode getMajor(BinaryNode currentRoot) {
+        //caso base
+        if (currentRoot.getRightNode() == null) {
+            return currentRoot;
+        } else {
+            return getMajor(currentRoot.getRightNode());
+        }
+    }
+    
+    public void preOrder(){
+        preOrder(root);
+    }
+    
+    private void preOrder(BinaryNode currentRoot){
+        if(currentRoot!=null){
+            System.out.println(currentRoot.getData());
+            preOrder(currentRoot.getLeftNode());
+            preOrder(currentRoot.getRightNode());
+        }
+    }
 }
-
-

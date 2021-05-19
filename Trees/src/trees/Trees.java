@@ -15,13 +15,16 @@ public class Trees {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO code applicatio¡n logic here
         BinarySearchTree bst = new BinarySearchTree();
         bst.add(88);
         bst.add(33);
         bst.add(99);
         bst.add(44);
-        bst.delete(33);
+        bst.add(22);
+        bst.add(101);
+        //bst.delete(88);
+        bst.preOrder();
         System.out.println("");
         
         
