@@ -98,7 +98,7 @@ public class BinarySearchTree {
             } else if (tempNode.oneChild()) {//caso base 2
                 //caso especial de un solo hijo (raiz)
                 if (tempNode == root) {
-                    root = (tempNode.isLeftOrRight())?tempNode.getRightNode():tempNode.getLeftNode();
+                    root = (tempNode.isLeftOrRight()) ? tempNode.getRightNode() : tempNode.getLeftNode();
                     return;
                 }
                 //Si el nodo por borrar tiene solo un hijo, 
@@ -136,16 +136,43 @@ public class BinarySearchTree {
             return getMajor(currentRoot.getRightNode());
         }
     }
-    
-    public void preOrder(){
+
+    public void preOrder() {
         preOrder(root);
     }
-    
-    private void preOrder(BinaryNode currentRoot){
-        if(currentRoot!=null){
-            System.out.println(currentRoot.getData());
+
+    private void preOrder(BinaryNode currentRoot) {
+        if (currentRoot != null) {
+            System.out.print(currentRoot.getData()+" ");
             preOrder(currentRoot.getLeftNode());
             preOrder(currentRoot.getRightNode());
         }
     }
+
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void postOrder(BinaryNode currentRoot) {
+        if (currentRoot != null) {            
+            postOrder(currentRoot.getLeftNode());
+            postOrder(currentRoot.getRightNode());
+            System.out.print(currentRoot.getData()+" ");
+        }
+    }
+    
+    
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(BinaryNode currentRoot) {
+        if (currentRoot != null) {            
+            inOrder(currentRoot.getLeftNode());
+            System.out.print(currentRoot.getData()+" ");
+            inOrder(currentRoot.getRightNode());
+            
+        }
+    }
+
 }

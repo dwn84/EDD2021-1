@@ -24,7 +24,10 @@ public class Trees {
         bst.add(22);
         bst.add(101);
         //bst.delete(88);
+        System.out.println("Pre-orden");
         bst.preOrder();
+        System.out.println("\nIn-orden");
+        bst.inOrder();
         System.out.println("");
         
         
